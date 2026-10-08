@@ -1,0 +1,43 @@
+baseURL: "http://localhost:1313/"
+languageCode: "en-us"
+title: "Morrow Projects"
+theme: "aftermath-theme"
+
+# Markup
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Sections
+contentDir: "content"
+publishDir: "public"
+
+#menus:
+#  main:
+#    - name: "White Pages"
+#      url: "/white-pages/"
+#      weight: 10
+#    - name: "Yellow Pages"
+#      url: "/yellow-pages/"
+#      weight: 20
+#    - name: "City Confidential"
+#      url: "/city-stories/"
+#      weight: 30
+#    - name: "Ruminations"
+#      url: "/blog/"
+#      weight: 40
+#    - name: "The Atlas"
+#      url: "/the-atlas/"
+#      weight: 50
+#    - name: "Sources"
+#      url: "/meta/sources/"
+#      weight: 60
+
+#sections:
+#  white-pages:
+#    sort_by: Title
+#  yellow-pages:
+#    sort_by: Title
+## remove before deploying
+relativeURLs: true

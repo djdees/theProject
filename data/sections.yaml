@@ -1,0 +1,24 @@
+- id: pens
+  title: The Pens
+  order: 10
+  description: The Entrance to the Island
+  nav: true
+
+- id: bowl
+  title: The Bowl
+  order: 20
+  description: The Interior
+  nav: true
+
+- id: tree
+  title: The Tree
+  order: 30
+  description: The Centerpiece
+  nav: true
+
+- id: tubes
+  title: The Tubes
+  order: 40
+  description: The Hidden
+  nav: true
+
