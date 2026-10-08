@@ -1,0 +1,8 @@
+{{- $s := .section -}}
+{{- $pages := $s.Pages -}}
+{{- if .regular }}{{ $pages = $s.RegularPages }}{{ end -}}
+{{- $by := $s.Params.sortby | default "weight" -}}
+{{- if eq $by "title" }}{{ $pages = $pages.ByTitle -}}
+{{- else if eq $by "date" }}{{ $pages = $pages.ByDate.Reverse -}}
+{{- else }}{{ $pages = $pages.ByWeight }}{{ end -}}
+{{- return $pages -}}

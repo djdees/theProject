@@ -1,0 +1,18 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "The Morrow Project"
+theme = "aftermath-theme"
+
+[params]
+  tagline = "Recovery team records"
+  description = "Campaign reference for a Morrow Project game."
+  dateFormat = "2006-01-02"   # Go reference-time layout for dates
+  indexTitle = "Contents"     # heading above the home page section list
+  homeRecent = 3              # latest blog entries shown on the home page
+  footer = "Set in Allerta Stencil, Courier Prime and VT323."
+
+# Optional: an explicit menu replaces the automatic section menu.
+# [[menus.main]]
+#   name = "Archive"
+#   url = "/docs/"
+#   weight = 10

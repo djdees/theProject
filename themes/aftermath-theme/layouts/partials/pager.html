@@ -1,0 +1,16 @@
+{{ $page := . }}
+{{ $pages := partial "sorted.html" (dict "section" .CurrentSection "regular" true) }}
+{{ $prev := false }}
+{{ $next := false }}
+{{ range $i, $p := $pages }}
+  {{ if $p.Eq $page }}
+    {{ if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+    {{ if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if or $prev $next }}
+<nav class="pager" aria-label="Neighboring files">
+  {{ with $prev }}<a class="prev" rel="prev" href="{{ .RelPermalink }}"><span class="pager-label">Previous</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
+  {{ with $next }}<a class="next" rel="next" href="{{ .RelPermalink }}"><span class="pager-label">Next</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
+</nav>
+{{ end }}

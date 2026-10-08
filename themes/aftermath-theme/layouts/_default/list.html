@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<article class="page">
+  <header class="page-head">
+    {{ with .Params.classification }}<p class="stamp">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.tagline }}<p class="sub">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{ $pages := partial "sorted.html" (dict "section" . "regular" false) }}
+  {{ $showDate := eq (.Params.sortby | default "weight") "date" }}
+  {{ with $pages }}
+  <ul class="file-index">
+    {{ range . }}
+      {{ partial "entry.html" (dict "page" . "showDate" $showDate) }}
+    {{ end }}
+  </ul>
+  {{ end }}
+</article>
+{{ end }}

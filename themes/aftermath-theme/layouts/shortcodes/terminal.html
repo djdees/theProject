@@ -1,0 +1,4 @@
+<figure class="terminal">
+  {{ with .Get "title" }}<figcaption>{{ . }}</figcaption>{{ end }}
+  <pre>{{ trim (.Inner | htmlEscape) "\r\n" | safeHTML }}</pre>
+</figure>

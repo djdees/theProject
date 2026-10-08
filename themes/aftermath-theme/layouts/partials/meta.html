@@ -1,0 +1,3 @@
+{{ if and (not .Date.IsZero) (or .Params.showdate (eq .Section "blog")) }}
+<p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}</time></p>
+{{ end }}

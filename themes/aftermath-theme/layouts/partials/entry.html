@@ -1,0 +1,20 @@
+{{ $p := .page }}
+<li class="entry">
+  <a class="entry-link" href="{{ $p.RelPermalink }}">
+    <span class="entry-title">{{ $p.LinkTitle }}</span>
+    <span class="leader" aria-hidden="true"></span>
+    {{ if and .showDate (not $p.Date.IsZero) }}
+      <time class="entry-meta" datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format (site.Params.dateFormat | default "2006-01-02") }}</time>
+    {{ end }}
+  </a>
+  {{ with $p.Params.tagline | default $p.Description }}<p class="entry-note">{{ . }}</p>{{ end }}
+  {{ if and .children $p.IsSection }}
+    {{ with $p.Sections }}
+    <ul class="file-index nested">
+      {{ range partial "sorted.html" (dict "section" $p "regular" false) }}
+        {{ if .IsSection }}{{ partial "entry.html" (dict "page" . "showDate" false) }}{{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+  {{ end }}
+</li>

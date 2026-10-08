@@ -1,0 +1,7 @@
+<dl class="memo">
+  {{ with .Get "ref" }}<div><dt>Ref</dt><dd>{{ . }}</dd></div>{{ end }}
+  {{ with .Get "to" }}<div><dt>To</dt><dd>{{ . }}</dd></div>{{ end }}
+  {{ with .Get "from" }}<div><dt>From</dt><dd>{{ . }}</dd></div>{{ end }}
+  {{ with .Get "date" }}<div><dt>Date</dt><dd>{{ . }}</dd></div>{{ end }}
+  {{ with .Get "subject" }}<div><dt>Subject</dt><dd>{{ . }}</dd></div>{{ end }}
+</dl>

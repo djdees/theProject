@@ -1,0 +1,5 @@
+{{- $type := .Get "type" | default "note" -}}
+<aside class="callout callout-{{ $type }}">
+  <p class="callout-title">{{ .Get "title" | default (replace $type "-" " " | humanize) }}</p>
+  {{ .Page.RenderString (dict "display" "block") .Inner }}
+</aside>

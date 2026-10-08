@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<article class="page">
+  <header class="page-head">
+    {{ with .Params.classification }}<p class="stamp">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.tagline }}<p class="sub">{{ . }}</p>{{ end }}
+    {{ partial "meta.html" . }}
+  </header>
+  {{ if and .Params.toc .TableOfContents }}
+  <details class="toc" open>
+    <summary>Contents</summary>
+    {{ .TableOfContents }}
+  </details>
+  {{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ partial "pager.html" . }}
+{{ end }}

@@ -1,0 +1,5 @@
+{{- $level := .Get "level" | default (.Get 0) | default "Restricted" -}}
+<aside class="classified">
+  <p class="classified-level">{{ $level }}</p>
+  <div class="classified-body">{{ .Page.RenderString (dict "display" "block") .Inner }}</div>
+</aside>

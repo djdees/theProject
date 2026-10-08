@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article class="page home">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.tagline | default site.Params.tagline }}<p class="sub">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  {{ if or .Sections .RegularPages }}
+  <section class="home-index" aria-labelledby="home-index-title">
+    <h2 id="home-index-title">{{ site.Params.indexTitle | default "Contents" }}</h2>
+    <ul class="file-index">
+      {{ range .Sections.ByWeight }}
+        {{ partial "entry.html" (dict "page" . "showDate" false "children" true) }}
+      {{ end }}
+      {{ range .RegularPages.ByWeight }}
+        {{ partial "entry.html" (dict "page" . "showDate" false) }}
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ $recent := int (site.Params.homeRecent | default 3) }}
+  {{ with site.GetPage "/blog" }}
+    {{ with .RegularPages.ByDate.Reverse | first $recent }}
+    <section class="home-recent" aria-labelledby="home-recent-title">
+      <h2 id="home-recent-title">{{ site.Params.recentTitle | default "Latest entries" }}</h2>
+      <ul class="file-index">
+        {{ range . }}
+          {{ partial "entry.html" (dict "page" . "showDate" true) }}
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  {{ end }}
+</article>
+{{ end }}
