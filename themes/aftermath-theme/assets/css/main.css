@@ -273,13 +273,12 @@ th { background: var(--sheet-deep); font-weight: 700; }
 /* ---------- Previous / next ---------- */
 
 .pager {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
   margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 4px double var(--ink);
 }
+.pager-back { margin: 0 0 1rem; font-size: .95rem; }
+.pager-links { display: flex; justify-content: space-between; gap: 1rem; }
 .pager a { display: block; max-width: 48%; text-decoration: none; color: var(--ink); }
 .pager .next { margin-left: auto; text-align: right; }
 .pager-label { display: block; font-size: .85rem; color: var(--ink-soft); }
@@ -377,6 +376,24 @@ th { background: var(--sheet-deep); font-weight: 700; }
   cursor: help;
 }
 .redact:hover, .redact:focus { background: transparent; color: inherit; outline: 2px solid var(--ink); }
+
+/* Ported from the City theme: break, storyteller, inspiration */
+
+.story-break { margin: 2.25rem 0; padding-top: 1.25rem; border-top: 2px dashed var(--rule); }
+.story-break > h2 { margin-top: 0; }
+
+.st-info, .inspiration {
+  max-width: var(--measure);
+  margin: 1.5rem 0;
+  padding: .6rem 1rem;
+  background: rgba(255, 255, 255, .15);
+}
+.st-info { border: 2px dashed var(--stamp); }
+.inspiration { border: 1px solid var(--rule); }
+.st-info summary, .inspiration summary { cursor: pointer; font-weight: 700; }
+.st-info summary { color: var(--stamp); }
+.st-info[open] summary, .inspiration[open] summary { margin-bottom: .6rem; }
+.st-info > div > :last-child, .inspiration > div > :last-child { margin-bottom: 0; }
 
 /* ---------- Footer ---------- */
 

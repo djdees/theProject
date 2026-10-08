@@ -1,0 +1,6 @@
+<details class="st-info">
+    <summary>
+        {{ if .IsNamedParams }}{{ .Get "title" }}{{ else }}{{ .Get 0 | default "Storyteller Info" }}{{ end }}
+    </summary>
+    <div>{{ .Inner | markdownify }}</div>
+</details>

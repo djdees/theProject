@@ -4,7 +4,7 @@ licenselink = "LICENSE"
 description = "A field-manual theme for post-apocalyptic RPG campaign sites: stencil headings, typed body text, olive-drab and manila palette."
 homepage = ""
 tags = ["responsive", "documentation", "blog", "rpg"]
-features = ["shortcodes", "archetypes", "print stylesheet", "no javascript", "self-hosted fonts"]
+features = ["shortcodes", "archetypes", "print stylesheet", "menu works without javascript", "self-hosted fonts"]
 min_version = "0.128.0"
 
 [author]

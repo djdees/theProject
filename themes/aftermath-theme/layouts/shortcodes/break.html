@@ -1,0 +1,7 @@
+<section class="story-break{{ with .Get "class" }} {{ . }}{{ end }}">
+  {{ with .Get "title" }}
+    <h2>{{ . }}</h2>
+  {{ end }}
+
+  {{ .Inner | markdownify }}
+</section>

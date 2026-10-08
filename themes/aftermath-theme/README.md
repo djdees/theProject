@@ -1,8 +1,9 @@
 # aftermath-theme
 
 A Hugo theme for post-apocalyptic RPG campaign sites. Stencil headings, typed
-body text, an olive-drab canvas with a manila sheet on top. No JavaScript, no
-external requests: fonts are bundled.
+body text, an olive-drab canvas with a manila sheet on top. No external
+requests: fonts are bundled. The only script is ten lines that close the menu on
+an outside click or Escape; the menu works without it.
 
 Tested with Hugo extended 0.147. Needs 0.128 or later.
 
@@ -66,6 +67,7 @@ sections. Define `[[menus.main]]` entries in your config to replace it.
 | `classification` | any page | Red stamp above the title |
 | `toc` | single page | Show a contents box built from the headings |
 | `showdate` | single page | Show the date (blog pages always show it) |
+| `showdates` | section `_index.md` | Show each entry's date in that section's list |
 
 Previous/next links at the bottom of a page follow the same order as its
 section list.
@@ -89,6 +91,28 @@ Use the `{{< >}}` form for all of them.
 {{< redact >}}hidden until hover or focus{{< /redact >}}
 {{< stamp "Declassified" >}}
 ```
+
+Carried over from the City theme, same names and parameters:
+
+```
+{{< break title="Optional heading" class="optional-extra-class" >}}Markdown.{{< /break >}}
+{{< center >}}Centered text.{{< /center >}}
+{{< storyteller >}}Notes for the Storyteller.{{< /storyteller >}}
+{{< storyteller "Custom summary" >}}...{{< /storyteller >}}
+{{< inspiration >}}Source notes, Markdown rendered.{{< /inspiration >}}
+{{< inspiration-raw >}}<p>Raw HTML.</p>{{< /inspiration-raw >}}
+```
+
+## Moving City content over
+
+- City ordered its series list by title and arcs by weight, based on the URL.
+  Here that is a front matter setting: put `sortby: title` in
+  `series/_index.md` and `sortby: weight` in each arc's `_index.md`.
+- City hard-coded the home page cards. Here the home page lists your top-level
+  sections and their child sections automatically, using each section's
+  `tagline` (or `description`). There are no card icons.
+- A "Back to ..." link now appears above the previous/next links on every page
+  that sits inside a section.
 
 ## Archetypes
 

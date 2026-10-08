@@ -38,3 +38,19 @@ Text you want presented as a restricted file. A second paragraph works too.
 {{< /terminal >}}
 
 The location was {{< redact >}}withheld by order{{< /redact >}}. Hover or focus the black bar to read it. {{< stamp "Declassified" >}} sits inline.
+
+## Carried over from City
+
+{{< storyteller >}}
+Notes only the Storyteller should read.
+{{< /storyteller >}}
+
+{{< inspiration >}}
+Where an idea came from. Opens and closes.
+{{< /inspiration >}}
+
+{{< break title="A scene break" >}}
+Content inside a break gets a dashed rule above it.
+{{< /break >}}
+
+{{< center >}}Centered line.{{< /center >}}

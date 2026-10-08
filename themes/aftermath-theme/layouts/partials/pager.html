@@ -8,9 +8,16 @@
     {{ if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
   {{ end }}
 {{ end }}
-{{ if or $prev $next }}
+{{ $back := false }}
+{{ with .Parent }}{{ if not .IsHome }}{{ $back = . }}{{ end }}{{ end }}
+{{ if or $prev $next $back }}
 <nav class="pager" aria-label="Neighboring files">
-  {{ with $prev }}<a class="prev" rel="prev" href="{{ .RelPermalink }}"><span class="pager-label">Previous</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
-  {{ with $next }}<a class="next" rel="next" href="{{ .RelPermalink }}"><span class="pager-label">Next</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
+  {{ with $back }}<p class="pager-back"><a href="{{ .RelPermalink }}">Back to {{ .LinkTitle }}</a></p>{{ end }}
+  {{ if or $prev $next }}
+  <div class="pager-links">
+    {{ with $prev }}<a class="prev" rel="prev" href="{{ .RelPermalink }}"><span class="pager-label">Previous</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
+    {{ with $next }}<a class="next" rel="next" href="{{ .RelPermalink }}"><span class="pager-label">Next</span><span class="pager-title">{{ .LinkTitle }}</span></a>{{ end }}
+  </div>
+  {{ end }}
 </nav>
 {{ end }}
